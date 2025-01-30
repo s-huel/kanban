@@ -1,3 +1,18 @@
+<?php
+
+require 'database/connect.php';
+
+$lanes = $pdo->query("SELECT * FROM lane")->fetchAll(PDO::FETCH_ASSOC);
+
+function getItems($pdo, $laneId)
+{
+    $stmt = $pdo->prepare("SELECT * FROM item WHERE lane_id = :lane_id");
+    $stmt->execute(['lane_id' => $laneId]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

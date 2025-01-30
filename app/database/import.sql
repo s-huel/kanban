@@ -13,3 +13,5 @@ CREATE TABLE item (
     title VARCHAR(255),
     FOREIGN KEY (lane_id) REFERENCES lane(id)
 );
+
+INSERT INTO lane (title) VALUES ('Todo'), ('In Progress'), ('Done');
